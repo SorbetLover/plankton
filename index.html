@@ -6,22 +6,31 @@
         body {
             margin: 0;  
             padding: 100;
-            background-image: url("https://github.com/SorbetLover/plankton/blob/main/img.png?raw=true");
             background-size: cover;
             background-repeat: no-repeat;
-            
+            background-position: 0px -100px;
+            background-color: black;   
         }
-
     </style>
     
-    <body>
-        <script>
-            switch(screen.orientation.type){
-                case "portrait-primary" || "portrait-secondary":
-    
-                document.body.style.backgroundSize = window.innerWidth + window.innerHeight;
-    
-            }
-        </script>
-    </body>
+
 </head>
+
+<body onload="uhh()">
+    <audio id = "augh" loop="true">
+        <source src = "https://github.com/SorbetLover/plankton/blob/main/sound.mp3" type="audio/mp3">
+
+    </audio>
+    <script>
+        let x = document.querySelector('audio');
+
+        function play(){
+            x.play();
+        }
+
+        function uhh(){
+            document.getElementById("body").backgroun
+        }
+        
+    </script>
+</body>
