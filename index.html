@@ -3,51 +3,131 @@
 <head>
 
     <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
 
     <title>RickRoll V2</title>
 
     <style>
-
         body {
-
             margin: 0;  
-
             padding: 100;
-
-            background-image: url("https://github.com/SorbetLover/plankton/blob/main/img.png?raw=true");
-
             background-size: cover;
-
             background-repeat: no-repeat;
-
-            
-
+            background-position: 0px -120px;
         }
+        #shit {
+          margin: 100;
+          position: absolute;
+          scale: 2;
+          left: 350px;
+          top: 340px;
+        }
+     #cud {
+      color: #FFFFFF;
+      position: absolute;
+      top: 280px;
+      left: 70px;
+      scale: 0.7;
+      margin: -50px;
+      }
+
+      #MERDA1 {
+        color: #FFFFFF;
+        position:absolute;
+        left:320px;
+        top:300px;
+      }
+      #merda {
+        position: absolute;
+        left: 300px;
+        top:300px;
+        scale: 1.4;
+      }
 
 
-
-    </style>
-
-    
-
-    <body>
-
-        <script>
-
-            switch(screen.orientation.type){
-
-                case "portrait-primary" || "portrait-secondary":
-
-    
-
-                document.body.style.backgroundSize = window.innerWidth + window.innerHeight;
-
-    
-
+      </style>
+  <body onload="middle()">
+      
+      <script src="sketch.js">
+      </script>
+      <button type="button" id="shit" onclick="merda()">
+            abrir site
+      </button>
+      <input type="checkbox" id="merda">
+      <label id="MERDA1" for="merda">aceito esse caralho</label>
+        <h1 id="cud">
+          concordo que nao morrerei apos ver esta merda
+        </h1>
+      <audio src="https://github.com/SorbetLover/plankton/blob/main/sound.mp3?raw=true" type="audio/mp3" id="augh"></audio>
+      <script>
+          function isMobile() {
+            return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+          } /// chatgpt <3
+          function merda(){
+            if(document.getElementById("merda").checked == true){
+              document.body.style.backgroundImage = "url('https://github.com/SorbetLover/plankton/blob/main/img.png?raw=true')";
+              document.getElementById("augh").play();
+              document.getElementById("cud").style.opacity = 0;
+              document.getElementById("MERDA1").style.opacity = 0;
+              document.getElementById("merda").style.opacity = 0;
+              document.getElementById("shit").style.opacity = 0;
+            
+              if(isMobile() == true){
+                
+                document.body.style.backgroundPosition = "-350px 00px";
+                document.body.style.backgroundSize = "300%";
+                
+              }
+            
             }
+            
+          }
+        function middle() {
+              const ids = ["augh", "cud", "MERDA1", "merda", "shit"];
+              for (let id of ids) {
+                const element = document.getElementById(id);
+                if (element) {
+                  element.style.position = "absolute";
+
+                  const windowWidth = window.innerWidth;
+                  const elementWidth = element.offsetWidth;
+                  const centerX = (windowWidth - elementWidth) / 2;
+
+                  element.style.left = centerX + "px";
+                }
+                 document.getElementById("cud").style.left = "590px";          
+
+              }
+          const element = document.getElementById("merda");
+          if (element) {
+            const currentLeft = parseInt(getComputedStyle(element).left, 10);
+
+            const newLeft = currentLeft - 80;
+
+            element.style.left = newLeft + "px";
+          }
+         
+          let uhum = isMobile();
+          if(uhum == true){
+          document.getElementById("cud").style.left = "50px";          
+
+            document.getElementById("MERDA1").style.color = "#000000";
+            document.getElementById("cud").style.color = "#000000";
+            document.getElementById("cud").style.scale = "0.6";
+            document.getElementById("cud").style.left = "40px";          
+            document.getElementById("cud").style.margin = "-100px"; 
+            document.getElementById("cud").style.top = "320px";      
+            
+            
+            
+            
+          }
+          
+        }  /// usei chatgpt fds
 
         </script>
-
     </body>
-
 </head>
